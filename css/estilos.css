@@ -65,21 +65,24 @@
 .main__contenido {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     margin-top: 30px;
     gap: 16px;
 }
 
 .card {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 5%;
     max-width: 300px;
     margin: auto;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Nanum Myeongjo', serif;
 }
 
 .card > img {
     width: 100%;
     height: 400px;
+    border-radius: 5%;
 }
 
 .price {
@@ -89,6 +92,7 @@
 
 .card button {
     border: none;
+    border-radius: 8%;
     outline: 0;
     padding: 12px;
     color: white;
@@ -106,7 +110,7 @@
 .parrafo_carrito {
     color: black;
     text-align: center;
-    margin-top: 1rem;
+    margin: 2rem;
     font-family: 'Nanum Myeongjo', serif;
 }
 
@@ -191,7 +195,7 @@
 .main__backgroun{
     background: url(../img/ala1.jpg);
     background-size: cover;
-    height:300px;
+    height: 250px;
     width: 100%;
     position: relative;
 }
@@ -296,6 +300,11 @@
     font-weight: bolder;
     font-size: 1.5rem;
     translate: 250px -30px;
+}
+.header__modal-container img, svg {
+    vertical-align: middle;
+    width: 100px;
+    cursor: pointer;
 }
 
 .footer__formulario {
