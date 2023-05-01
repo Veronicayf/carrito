@@ -103,12 +103,11 @@
     opacity: 0.7;
 }
 
-.parrafo_carrito{
+.parrafo_carrito {
     color: black;
-    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     margin-top: 1rem;
-    
+    font-family: 'Nanum Myeongjo', serif;
 }
 
 .header__modal-container {

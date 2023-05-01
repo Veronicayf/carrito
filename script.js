@@ -48,7 +48,8 @@ let carrito = JSON.parse(localStorage.getItem("reservas")) || [];
         comprar.innerText = "Reservar";
         comprar.className = "reservar";
         content.append(comprar);
-
+            
+            //clikc al boton reservar
             comprar.addEventListener("click", () => {
             const repetido = carrito.some((repetirProducto) => repetirProducto.id === paquets.id);
             
@@ -73,27 +74,28 @@ let carrito = JSON.parse(localStorage.getItem("reservas")) || [];
                 saveInfo();
             });
     });
-//icono de carrito
+        //icono de carrito
         const pintarCarrito = () => {
         modalContainer.innerHTML = "";
         modalContainer.style.display="flex";
+
         const modalHeader = document.createElement("div");
-            modalHeader.className = "header__modal"
-            modalHeader.innerHTML = `<h1 class="header__modal-titulo">Tus reservas:</h1>`;
+        modalHeader.className = "header__modal"
+        modalHeader.innerHTML = `<h1 class="header__modal-titulo">Tus reservas:</h1>`;
         modalContainer.append(modalHeader);
 
         const modalbutton = document.createElement("h1");
-            modalbutton.innerText = "X";
-            modalbutton.className="header__modal-button";
+        modalbutton.innerText = "X";
+        modalbutton.className="header__modal-button";
 
-            modalbutton.addEventListener("click", () => {
-                modalContainer.style.display="none";
-            });
+        modalbutton.addEventListener("click", () => {
+            modalContainer.style.display="none";
+        });
 
-            modalHeader.append(modalbutton);
+        modalHeader.append(modalbutton);
 
 
-//contenido de carrito
+        //contenido de carrito
         carrito.forEach((paquets) => {
             let carritoContenido = document.createElement("div");
                 carritoContenido.className = "modal-content";
@@ -103,9 +105,7 @@ let carrito = JSON.parse(localStorage.getItem("reservas")) || [];
                 <p>${paquets.precio}$</p>
                 <p> Cantidad: ${paquets.cantidad} </p>
                 <p> Total: ${paquets.cantidad * paquets.precio}$</p>
-                <span class="delete__producto">✖️</span>
-                `;
-
+                <span class="delete__producto">✖️</span>`;
 
             modalContainer.append(carritoContenido);
 
@@ -118,41 +118,41 @@ let carrito = JSON.parse(localStorage.getItem("reservas")) || [];
         });
 
 
-// calculo de precios
+        // calculo de precios
         const total = carrito.reduce((acc, paquets) => acc + paquets.precio * paquets.cantidad, 0);
         const totalCompra = document.createElement("div")
-        totalCompra.className = "total__contenido"
-        totalCompra.innerHTML = `total a pagar: ${total}$`;
-        modalContainer.append(totalCompra);
-    };
-     verCarrito.addEventListener("click", pintarCarrito);
+            totalCompra.className = "total__contenido"
+            totalCompra.innerHTML = `total a pagar: ${total}$`;
+            modalContainer.append(totalCompra);
+        };
+        verCarrito.addEventListener("click", pintarCarrito);
 
-const eliminarReserva = (id) => {
-    const encontrarId = carrito.find((elemento) => elemento.id === id);
+        const eliminarReserva = (id) => {
+            const encontrarId = carrito.find((elemento) => elemento.id === id);
 
-    carrito = carrito.filter((carritoId) =>{
-        return carritoId !== encontrarId; 
-    });
-    carritoContador();
-    saveInfo();
-    pintarCarrito();
-};
-//etiqueta contadora
-const carritoContador = () => {
-    cantidadCarrito.style.display = "block";
+            carrito = carrito.filter((carritoId) =>{
+                return carritoId !== encontrarId; 
+            });
+            carritoContador();
+            saveInfo();
+            pintarCarrito();
+        };
+        //etiqueta contadora
+        const carritoContador = () => {
+            cantidadCarrito.style.display = "block";
 
-    const carritoLista = carrito.length;
-    localStorage.setItem("carritoLista", JSON.stringify(carritoLista));
-    cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLista"));
+            const carritoLista = carrito.length;
 
-    cantidadCarrito.innerText = carrito.length;
-};
+            localStorage.setItem("carritoLista", JSON.stringify(carritoLista));
+            cantidadCarrito.innerText = JSON.parse(localStorage.getItem("carritoLista"));
 
-//local storage
+            cantidadCarrito.innerText = carrito.length;
+        };
 
-const saveInfo = () => {
-    localStorage.setItem("reservas", JSON.stringify(carrito));
-    
-};
+        //local storage
+        const saveInfo = () => {
+            localStorage.setItem("reservas", JSON.stringify(carrito));
+            
+        };
 
-JSON.parse(localStorage.getItem("reservas"));
+        JSON.parse(localStorage.getItem("reservas"));
