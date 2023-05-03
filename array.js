@@ -8,7 +8,7 @@ const paquetes = [
         tipo: "internacional",
     },
     {
-        id: 5,
+        id: 2,
         destino: "Iguazu",
         precio: 9300,
         img: src="../img/iguazu.jpg",
@@ -16,7 +16,7 @@ const paquetes = [
         tipo: "nacional",
     },
     {
-        id: 2,
+        id: 3,
         destino: "Londres",
         precio: 10500,
         img: src="../img/londres.jpg",
@@ -24,7 +24,7 @@ const paquetes = [
         tipo: "internacional",
     },
     {
-        id: 6,
+        id: 4,
         destino: "Ushuaia",
         precio: 19500,
         img: src="../img/ushuaia.jpg",
@@ -32,7 +32,7 @@ const paquetes = [
         tipo: "nacional",
     },
     {
-        id: 3,
+        id: 5,
         destino: "Paris",
         precio: 18500,
         img: src="../img/paris.jpg",
@@ -40,7 +40,7 @@ const paquetes = [
         tipo: "internacional",
     },
     {
-        id: 7,
+        id: 6,
         destino: "Bariloche",
         precio: 28500,
         img: src="../img/bariloche.jpg",
@@ -48,7 +48,7 @@ const paquetes = [
         tipo: "nacional",
     },
     {
-        id: 4,
+        id: 7,
         destino: "Caribe",
         precio: 6300,
         img: src="../img/punta_cana.jpg",
