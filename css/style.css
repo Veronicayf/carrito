@@ -4,6 +4,10 @@ body {
     font-family: 'Poppins', sans-serif !important;
 }
 
+ul {
+    list-style: none;
+}
+
 .header__logo{
     width: 100px;
     margin-right: 20px;
@@ -65,8 +69,6 @@ body {
 .nav-icons {
     width: 150px;
 }
-
-/* INICIO ESTILOS DE JAVASCRIPT */
 
 .main__content {
     gap: 50px;
@@ -322,6 +324,13 @@ body {
 .footer__form-inside{
     display: flex;
     
+}
+
+
+
+.footer-logo {
+    width: 150px;
+    filter: invert(1);
 }
 
 .booked-img {

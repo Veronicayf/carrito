@@ -10,7 +10,6 @@ const getGlobalAmount = () => {
   allBookings.forEach((elem) => {
     auxAmount = elem.amount + elem.price;
   });
-  console.log("auxAmount =>> ", auxAmount);
   globalAmounts = auxAmount;
 };
 
@@ -61,13 +60,18 @@ const shoppingCartData = () => {
       elem.city
     }" class="rounded booked-img">
                 <h5>${elem.city}</h5>
-                <span><strong>Precio:</strong> ${handleCurrencyFormat(
-                  elem.price
-                )} $</span>
-                <span><strong>Cantidad:</strong> ${elem.amount}</span>
-                <span> <strong>Total:</strong> ${handleCurrencyFormat(
-                  elem.amount * elem.price
-                )} $</span>
+                <span>
+                  <strong>Precio: </strong>
+                  ${handleCurrencyFormat(elem.price)} $
+                </span>
+                <span>
+                  <strong>Cantidad: </strong>
+                  ${elem.amount}
+                </span>
+                <span>
+                <strong>Total: </strong>
+                ${handleCurrencyFormat(elem.amount * elem.price)} $
+                </span>
                 <button
                     type="button"
                     class="btn btn-danger"
