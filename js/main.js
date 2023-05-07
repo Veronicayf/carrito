@@ -3,23 +3,35 @@ const content = document.getElementById("contenido");
 const BOOKING_KEY = "bookings";
 
 let allBookings = [];
+let globalAmounts = 0;
 
-const handleCurrencyFormat = (number) => {
-  return Intl.NumberFormat("en-US").format(number);
+const getGlobalAmount = () => {
+  let auxAmount = 0;
+  allBookings.forEach((elem) => {
+    auxAmount = elem.amount + elem.price;
+  });
+  console.log("auxAmount =>> ", auxAmount);
+  globalAmounts = auxAmount;
 };
 
 const getLocalData = () => {
   const data = JSON.parse(localStorage.getItem(BOOKING_KEY));
   if (data) {
     allBookings = data;
+    getGlobalAmount();
   }
 };
 
 const setLocalData = (data) => {
   localStorage.setItem(BOOKING_KEY, JSON.stringify(data));
+  getGlobalAmount();
 };
 
-const getBookinglength = () => {
+const handleCurrencyFormat = (number) => {
+  return Intl.NumberFormat("en-US").format(number);
+};
+
+const getBookingLength = () => {
   return (document.getElementById("booking-length").innerText =
     allBookings.length);
 };
@@ -29,7 +41,7 @@ const shoppingCartData = () => {
   const bookingList = document.getElementById("modal-body-list");
   const grandTotal = document.getElementById("grand-total");
 
-  let globalAmounts = 0;
+  grandTotal.innerText = `${handleCurrencyFormat(globalAmounts)}`;
 
   bookingList.innerHTML = "";
   modalTitle.innerText = "Tus Reservaciones";
@@ -40,7 +52,6 @@ const shoppingCartData = () => {
   }
 
   allBookings.forEach((elem) => {
-    globalAmounts = globalAmounts + elem.amount * elem.price;
     const bookingitem = document.createElement("li");
 
     bookingitem.className = "list-group-item";
@@ -65,7 +76,6 @@ const shoppingCartData = () => {
             </div>`;
     bookingList.append(bookingitem);
   });
-  grandTotal.innerText = `${handleCurrencyFormat(globalAmounts)} $`;
 };
 
 const handleBooking = (id) => {
@@ -79,7 +89,7 @@ const handleBooking = (id) => {
     allBookings.splice(itemIndex, 1, selectedItem);
   }
   setLocalData(allBookings);
-  getBookinglength();
+  getBookingLength();
 };
 
 const handleDeleteBooking = (id) => {
@@ -87,7 +97,7 @@ const handleDeleteBooking = (id) => {
   setLocalData(auxArray);
   shoppingCartData();
   getLocalData();
-  getBookinglength();
+  getBookingLength();
 };
 
 const handleShowModal = () => {
@@ -97,7 +107,7 @@ const handleShowModal = () => {
 };
 
 getLocalData();
-getBookinglength();
+getBookingLength();
 
 destinations.forEach((elem) => {
   let itemCard = document.createElement("div");
