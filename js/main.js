@@ -50,7 +50,7 @@ const shoppingCartData = () => {
     return;
   }
 
-  allBookings.forEach((elem) => {
+  allBookings.map((elem) => {
     const bookingitem = document.createElement("li");
 
     bookingitem.className = "list-group-item";
@@ -113,7 +113,7 @@ const handleShowModal = () => {
 getLocalData();
 getBookingLength();
 
-destinations.forEach((elem) => {
+destinations.map((elem) => {
   let itemCard = document.createElement("div");
   itemCard.className = "card col-sm-12 col-md-4 col-lg-3 custom-card";
   itemCard.innerHTML = `
