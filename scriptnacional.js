@@ -1,8 +1,3 @@
-// const nacionalfilter = document.getElementById("nacionalfilter")
-// const internacionalfilter = [];
-
-// let carrito = JSON.parse(localStorage.getItem("reservas")) || [];
-
 const filtroNacional = paquetes.filter((Element) => {
     return Element.tipo === "nacional";
 });
@@ -48,6 +43,3 @@ filtroNacional.forEach((element) => {
         });
 
 });
-
-// JSON.parse(localStorage.getItem("reservas"));
-
