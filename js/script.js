@@ -97,12 +97,16 @@ const getproductos = async () => {
         const total = carrito.reduce((acc, paquets) => acc + paquets.precio * paquets.cantidad, 0);
         const totalCompra = document.createElement("div")
             totalCompra.className = "total__contenido"
-            totalCompra.innerHTML = `total a pagar: ${total}$`;
+            totalCompra.innerHTML = `
+            total a pagar: ${total}$
+            <button class="pagar"> Pagar </button>
+            `;
             modalContainer.append(totalCompra);
+
         };
         verCarrito.addEventListener("click", pintarCarrito);
 
-        const eliminarReserva = (id) => {
+         const eliminarReserva = (id) => {
             const encontrarId = carrito.find((elemento) => elemento.id === id);
 
             carrito = carrito.filter((carritoId) =>{
@@ -123,6 +127,8 @@ const getproductos = async () => {
 
             cantidadCarrito.innerText = carrito.length;
         };
+
+
 
         //local storage
         const saveInfo = () => {
