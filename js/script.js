@@ -99,12 +99,29 @@ const getproductos = async () => {
             totalCompra.className = "total__contenido"
             totalCompra.innerHTML = `
             total a pagar: ${total}$
-            <button class="pagar"> Pagar </button>
-            `;
+            `;   
             modalContainer.append(totalCompra);
+            
+        let pagar = document.createElement("button");
+        pagar.innerText = "Pagar";
+        pagar.className = "pagar";
+        totalCompra.append(pagar);
 
+        let pagarReserva = totalCompra.querySelector(".pagar")
+        pagarReserva.addEventListener("click", () => {
+            const vaciarCarrito = () => {
+                carrito = [];
+                carritoContador();
+                saveInfo();
+                pintarCarrito();
+            };
+            swal ( "¡Gracias! " , " ¡Compra exitosa! " )  ;
+            vaciarCarrito();
+        })
         };
+
         verCarrito.addEventListener("click", pintarCarrito);
+
 
          const eliminarReserva = (id) => {
             const encontrarId = carrito.find((elemento) => elemento.id === id);
@@ -115,6 +132,7 @@ const getproductos = async () => {
             carritoContador();
             saveInfo();
             pintarCarrito();
+
         };
         //etiqueta contadora
         const carritoContador = () => {

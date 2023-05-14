@@ -186,7 +186,14 @@
     position: absolute;
     display: none;
 }
-
+.pagar{
+  
+        border-radius: 20%;
+        color: white;
+        background: black;
+        width: 100px;
+        font-family: 'Nanum Myeongjo', serif;
+    }
 
 
 
