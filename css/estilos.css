@@ -199,10 +199,10 @@
 
 /* FIN ESTILOS DE JAVASCRIPT */
 
-.main__backgroun{
+.main__backgroun {
     background: url(../img/ala1.jpg);
     background-size: cover;
-    height: 250px;
+    height: 200px;
     width: 100%;
     position: relative;
 }
