@@ -6,7 +6,11 @@ const cantidadCarrito = document.getElementById("cantidadCarrito")
 
 let carrito = JSON.parse(localStorage.getItem("reservas")) || [];
 
-    paquetes.forEach((paquets) => {
+const getproductos = async () => {
+    const response = await fetch("./data.json");
+    const data = await response.json();
+
+    data.forEach((paquets) => {
         let content = document.createElement("div");
         content.className = "card";
         content.innerHTML = `
@@ -125,5 +129,8 @@ let carrito = JSON.parse(localStorage.getItem("reservas")) || [];
             localStorage.setItem("reservas", JSON.stringify(carrito));
             
         };
+    
+}
+    getproductos();
 
         JSON.parse(localStorage.getItem("reservas"));

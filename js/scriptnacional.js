@@ -1,14 +1,18 @@
-const filtroNacional = paquetes.filter((Element) => {
+const nacionalfilter = document.getElementById("nacionalfilter")
+
+const getproductos = async () => {
+    const response = await fetch("../data.json");
+    const data = await response.json();
+
+const filtroNacional = data.filter((Element) => {
     return Element.tipo === "nacional";
 });
-
-const nacionalfilter = document.getElementById("nacionalfilter")
 
 filtroNacional.forEach((element) => {
         let listaNacional = document.createElement("div");
         listaNacional.className = "card";
         listaNacional.innerHTML = `
-            <img src = "${element.img}">
+            <img src = ".${element.img}">
             <h3>${element.destino}</h3>
             <p class = "price">$ ${element.precio} </p>`;
         nacionalfilter.append(listaNacional);
@@ -43,3 +47,5 @@ filtroNacional.forEach((element) => {
         });
 
 });
+}
+getproductos();
