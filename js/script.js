@@ -107,6 +107,7 @@ const getproductos = async () => {
         pagar.className = "pagar";
         totalCompra.append(pagar);
 
+        //activar boton pagar
         let pagarReserva = totalCompra.querySelector(".pagar")
         pagarReserva.addEventListener("click", () => {
             const vaciarCarrito = () => {
